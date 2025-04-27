@@ -11,6 +11,7 @@ __pycache__/
 .Python
 env/
 venv/
+fastapi-venv/
 .env/
 .venv/
 ENV/
