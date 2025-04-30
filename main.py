@@ -104,6 +104,11 @@ async def chat(request: ChatRequest):
 # Mount static files after defining routes
 app.mount("/assets", StaticFiles(directory="./react/dist/assets"), name="assets")
 
+# Add a route for the Vite icon
+@app.get("/vite.svg", response_class=FileResponse)
+async def serve_vite_icon():
+    return FileResponse("./react/dist/vite.svg")
+
 # Serve other static files from the React build
 @app.get("/{path:path}", response_class=HTMLResponse)
 async def serve_react_paths(path: str):
